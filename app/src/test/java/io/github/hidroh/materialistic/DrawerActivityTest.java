@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.ParameterizedRobolectricTestRunner;
 import org.robolectric.Robolectric;
 import org.robolectric.annotation.Config;
 import org.robolectric.internal.ShadowExtractor;
@@ -15,9 +16,8 @@ import org.robolectric.util.ActivityController;
 import java.util.Arrays;
 import java.util.List;
 
-import io.github.hidroh.materialistic.test.ParameterizedRobolectricGradleTestRunner;
-import io.github.hidroh.materialistic.test.shadow.ShadowSupportDrawerLayout;
 import io.github.hidroh.materialistic.test.TestListActivity;
+import io.github.hidroh.materialistic.test.shadow.ShadowSupportDrawerLayout;
 
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -25,7 +25,7 @@ import static org.robolectric.Shadows.shadowOf;
 
 @SuppressWarnings("ConstantConditions")
 @Config(shadows = {ShadowSupportDrawerLayout.class})
-@RunWith(ParameterizedRobolectricGradleTestRunner.class)
+@RunWith(ParameterizedRobolectricTestRunner.class)
 public class DrawerActivityTest {
     private final int drawerResId;
     private final Class<? extends Activity> startedActivity;
@@ -37,7 +37,7 @@ public class DrawerActivityTest {
         this.startedActivity = startedActivity;
     }
 
-    @ParameterizedRobolectricGradleTestRunner.Parameters
+    @ParameterizedRobolectricTestRunner.Parameters
     public static List<Object[]> provideParameters() {
         return Arrays.asList(
                 new Object[]{R.id.drawer_account, LoginActivity.class},

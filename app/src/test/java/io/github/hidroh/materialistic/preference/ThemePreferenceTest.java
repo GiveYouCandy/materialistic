@@ -9,6 +9,7 @@ import android.view.View;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.ParameterizedRobolectricTestRunner;
 import org.robolectric.Robolectric;
 import org.robolectric.annotation.Config;
 import org.robolectric.util.ActivityController;
@@ -19,18 +20,17 @@ import java.util.List;
 import io.github.hidroh.materialistic.Preferences;
 import io.github.hidroh.materialistic.PreferencesActivity;
 import io.github.hidroh.materialistic.R;
-import io.github.hidroh.materialistic.test.ParameterizedRobolectricGradleTestRunner;
-import io.github.hidroh.materialistic.test.shadow.ShadowSupportPreference;
-import io.github.hidroh.materialistic.test.shadow.ShadowSupportPreferenceManager;
 import io.github.hidroh.materialistic.test.shadow.CustomShadows;
 import io.github.hidroh.materialistic.test.shadow.ShadowPreferenceFragmentCompat;
 import io.github.hidroh.materialistic.test.shadow.ShadowRecyclerViewAdapter;
+import io.github.hidroh.materialistic.test.shadow.ShadowSupportPreference;
+import io.github.hidroh.materialistic.test.shadow.ShadowSupportPreferenceManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.robolectric.Shadows.shadowOf;
 
 @Config(shadows = {ShadowSupportPreferenceManager.class, ShadowSupportPreference.class, ShadowPreferenceFragmentCompat.class, ShadowRecyclerViewAdapter.class})
-@RunWith(ParameterizedRobolectricGradleTestRunner.class)
+@RunWith(ParameterizedRobolectricTestRunner.class)
 public class ThemePreferenceTest {
     private final int preferenceId;
     private final int styleResId;
@@ -38,7 +38,7 @@ public class ThemePreferenceTest {
     private PreferencesActivity activity;
     private View preferenceView;
 
-    @ParameterizedRobolectricGradleTestRunner.Parameters
+    @ParameterizedRobolectricTestRunner.Parameters
     public static List<Object[]> provideParameters() {
         return Arrays.asList(
                 new Object[]{R.id.theme_dark, R.style.AppTheme_Dark},

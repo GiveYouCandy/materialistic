@@ -23,6 +23,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.ParameterizedRobolectricTestRunner;
 import org.robolectric.Robolectric;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.util.ActivityController;
@@ -30,13 +31,11 @@ import org.robolectric.util.ActivityController;
 import java.util.Arrays;
 import java.util.List;
 
-import io.github.hidroh.materialistic.test.ParameterizedRobolectricGradleTestRunner;
-
 import static junit.framework.Assert.assertEquals;
 import static org.assertj.android.api.Assertions.assertThat;
 import static org.robolectric.Shadows.shadowOf;
 
-@RunWith(ParameterizedRobolectricGradleTestRunner.class)
+@RunWith(ParameterizedRobolectricTestRunner.class)
 public class LauncherActivityTest {
     private final int choice;
     private final Class<? extends Activity> startedActivity;
@@ -48,7 +47,7 @@ public class LauncherActivityTest {
         this.startedActivity = startedActivity;
     }
 
-    @ParameterizedRobolectricGradleTestRunner.Parameters
+    @ParameterizedRobolectricTestRunner.Parameters
     public static List<Object[]> provideParameters() {
         return Arrays.asList(
                 new Object[]{R.string.pref_launch_screen_value_top, ListActivity.class},

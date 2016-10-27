@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
+import org.robolectric.ParameterizedRobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 
 import java.io.IOException;
@@ -16,7 +17,6 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.ObjectGraph;
 import dagger.Provides;
-import io.github.hidroh.materialistic.test.ParameterizedRobolectricGradleTestRunner;
 import rx.Observable;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -26,7 +26,7 @@ import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@RunWith(ParameterizedRobolectricGradleTestRunner.class)
+@RunWith(ParameterizedRobolectricTestRunner.class)
 public class AlgoliaPopularClientTest {
     private final String range;
     @Inject RestServiceFactory factory;
@@ -37,7 +37,7 @@ public class AlgoliaPopularClientTest {
         this.range = range;
     }
 
-    @ParameterizedRobolectricGradleTestRunner.Parameters
+    @ParameterizedRobolectricTestRunner.Parameters
     public static List<Object[]> provideParameters() {
         return Arrays.asList(
                 new Object[]{AlgoliaPopularClient.LAST_24H},

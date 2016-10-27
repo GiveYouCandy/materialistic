@@ -24,14 +24,14 @@ import org.junit.runner.RunWith;
 
 import java.io.IOException;
 
-import io.github.hidroh.materialistic.test.RobolectricGradleTestRunner;
+import io.github.hidroh.materialistic.test.TestRunner;
 import okio.Okio;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RobolectricGradleTestRunner.class)
+@RunWith(TestRunner.class)
 public class AdBlockerTest {
     @Test
     public void testBlockAd() {
